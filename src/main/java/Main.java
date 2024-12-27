@@ -7,15 +7,15 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         List<String> inputs = new ArrayList<>();
-        while(scanner.hasNext()){
-            // String input = scanner.next();
-            inputs.add(scanner.nextLine());
-            // System.out.println(input+": command not found");
-        }
-
-        for(String input : inputs) {
+        while(true){
+            String input = scanner.next();
+            // inputs.add(scanner.nextLine());
             System.out.println(input+": command not found");
         }
+
+        // for(String input : inputs) {
+        //     System.out.println(input+": command not found");
+        // }
         
     }
 }
