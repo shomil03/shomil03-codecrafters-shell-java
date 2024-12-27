@@ -8,21 +8,23 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         // List<String> inputs = new ArrayList<>();
         while(true){
-            String inputs = scanner.next();
+            String inputs = scanner.nextLine();
             String input[] = inputs.split(" ");
             // inputs.add(scanner.nextLine());
 
-            switch (input[0]) {
+            switch (input[0].toLowerCase()) {
+                
                 case "exit":
                     return;
                     // break;
 
                 case "echo":
+                    System.out.println(inputs.substring(inputs.indexOf(" ")));
                     // System.out.println();
-                    for(int i = 1 ; i < input.length ; i++) {
-                        System.out.print(input[i] +" ");
-                    }
-                    System.out.println();
+                    // for(int i = 1 ; i < input.length ; i++) {
+                    //     System.out.print(input[i] +" ");
+                    // }
+                    // System.out.println();
                     break;
                 default:
                     System.out.println(inputs+": command not found");
