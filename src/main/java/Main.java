@@ -18,7 +18,7 @@ public class Main {
                     // break;
 
                 case "echo":
-                    System.out.println();
+                    // System.out.println();
                     for(int i = 1 ; i < input.length ; i++) {
                         System.out.print(input[i] +" ");
                     }
