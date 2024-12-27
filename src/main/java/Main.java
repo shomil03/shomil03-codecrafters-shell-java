@@ -6,9 +6,10 @@ public class Main {
         System.out.print("$ "); 
 
         Scanner scanner = new Scanner(System.in);
-        List<String> inputs = new ArrayList<>();
+        // List<String> inputs = new ArrayList<>();
         while(true){
-            String input[] = scanner.next().split(" ");
+            String inputs = scanner.next();
+            String input[] = inputs.split(" ");
             // inputs.add(scanner.nextLine());
 
             switch (input[0]) {
@@ -16,7 +17,7 @@ public class Main {
                     return;
                     // break;
                 default:
-                    System.out.println(String.valueOf(input)+": command not found");
+                    System.out.println(inputs+": command not found");
                     break;
             }
             
