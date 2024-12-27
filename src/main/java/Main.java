@@ -8,9 +8,18 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         List<String> inputs = new ArrayList<>();
         while(true){
-            String input = scanner.next();
+            String input[] = scanner.next().split(" ");
             // inputs.add(scanner.nextLine());
-            System.out.println(input+": command not found");
+
+            switch (input[0]) {
+                case "exit":
+                    return;
+                    // break;
+                default:
+                    System.out.println(input+": command not found");
+                    break;
+            }
+            
             System.out.print("$ "); 
         }
 
