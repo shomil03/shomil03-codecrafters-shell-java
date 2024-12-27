@@ -16,6 +16,14 @@ public class Main {
                 case "exit":
                     return;
                     // break;
+
+                case "echo":
+                    System.out.println();
+                    for(int i = 1 ; i < input.length ; i++) {
+                        System.out.print(input[i] +" ");
+                    }
+                    System.out.println();
+                    break;
                 default:
                     System.out.println(inputs+": command not found");
                     break;
