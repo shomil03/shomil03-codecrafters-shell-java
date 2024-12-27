@@ -11,6 +11,7 @@ public class Main {
             String input = scanner.next();
             // inputs.add(scanner.nextLine());
             System.out.println(input+": command not found");
+            System.out.print("$ "); 
         }
 
         // for(String input : inputs) {
