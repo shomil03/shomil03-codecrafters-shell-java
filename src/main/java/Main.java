@@ -16,7 +16,7 @@ public class Main {
                     return;
                     // break;
                 default:
-                    System.out.println(input+": command not found");
+                    System.out.println(String.valueOf(input)+": command not found");
                     break;
             }
             
