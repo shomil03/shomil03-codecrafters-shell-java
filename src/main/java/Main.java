@@ -54,7 +54,7 @@ public class Main {
         for(String path : paths) {
             Path fullPath = Path.of(path , inputs[1]);
             if(Files.isRegularFile(fullPath)){
-                System.err.println(inputs[1] +" is a "+fullPath);
+                System.out.println(inputs[1] +" is "+fullPath);
                 return;
             }
         }
