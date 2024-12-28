@@ -19,6 +19,11 @@ public class Main {
 
             switch (input[0].toLowerCase()) {
 
+                case "pwd":
+                    String currentPath = System.getProperty("user.dir");
+                    System.out.println(currentPath);
+
+
                 case "type":
                     handleType(input);
                     break;
