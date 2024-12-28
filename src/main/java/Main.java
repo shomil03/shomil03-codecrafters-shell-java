@@ -3,10 +3,11 @@ import java.util.*;
 public class Main {
     static String paths[] = null;
     public static void main(String[] args) throws Exception {
-        if(args[0].substring(0 , 4).equals("PATH")){
-            String path = args[0].substring(6 , args[0].length()-1);
-            paths = path.split(":");
-        }
+        System.out.println(Arrays.toString(args));
+        // if(args[0].substring(0 , 4).equals("PATH")){
+        //     String path = args[0].substring(6 , args[0].length()-1);
+        //     paths = path.split(":");
+        // }
 
         // Uncomment this block to pass the first stage
         System.out.print("$ "); 
