@@ -1,14 +1,11 @@
 import java.util.Scanner;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 public class Main {
     static String paths[] = null;
     public static void main(String[] args) throws Exception {
-        // 
-        if(args.length > 0 && args[0].substring(0 , 4).equals("PATH")){
-            System.out.println(Arrays.toString(args));
-            String path = args[0].substring(6 , args[0].length()-1);
-            paths = path.split(":");
-        }
+        paths = System.getenv("PATH").split(":");
 
         // Uncomment this block to pass the first stage
         System.out.print("$ "); 
@@ -53,6 +50,14 @@ public class Main {
     }
     public static void handleType(String[] inputs) {
         // System.out.println(Arrays.toString(paths));
+
+        for(String path : paths) {
+            Path fullPath = Path.of(path , inputs[1]);
+            if(Files.isRegularFile(fullPath)){
+                System.err.println(inputs[1] +" is a "+fullPath);
+                return;
+            }
+        }
         switch (inputs[1]) {
             case "echo":
                 System.out.println(inputs[1] +" is a shell builtin");
