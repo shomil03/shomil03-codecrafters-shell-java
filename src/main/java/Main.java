@@ -52,7 +52,7 @@ public class Main {
         
     }
     public static void handleType(String[] inputs) {
-        System.out.println(Arrays.toString(paths));
+        // System.out.println(Arrays.toString(paths));
         switch (inputs[1]) {
             case "echo":
                 System.out.println(inputs[1] +" is a shell builtin");
