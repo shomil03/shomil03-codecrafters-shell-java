@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
@@ -22,7 +21,7 @@ public class Main {
                 case "pwd":
                     String currentPath = System.getProperty("user.dir");
                     System.out.println(currentPath);
-
+                    break;
 
                 case "type":
                     handleType(input);
@@ -67,7 +66,11 @@ public class Main {
     public static void handleType(String[] inputs) {
         // System.out.println(Arrays.toString(paths));
 
-        
+        List<String> builtins = new ArrayList<>();
+            builtins.add("echo");
+            builtins.add("exit");
+            builtins.add("type");
+            builtins.add("pwd");
         switch (inputs[1]) {
             case "echo":
                 System.out.println(inputs[1] +" is a shell builtin");
