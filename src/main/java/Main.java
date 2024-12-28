@@ -1,10 +1,16 @@
 import java.util.Scanner;
 import java.util.*;
 public class Main {
+    static String paths[] = null;
     public static void main(String[] args) throws Exception {
+        if(args[0].substring(0 , 4).equals("PATH")){
+            String path = args[0].substring(6 , args[0].length()-1);
+            paths = path.split(":");
+        }
+
         // Uncomment this block to pass the first stage
         System.out.print("$ "); 
-
+        
         Scanner scanner = new Scanner(System.in);
         // List<String> inputs = new ArrayList<>();
         while(true){
@@ -44,6 +50,7 @@ public class Main {
         
     }
     public static void handleType(String[] inputs) {
+        System.out.println(Arrays.toString(paths));
         switch (inputs[1]) {
             case "echo":
                 System.out.println(inputs[1] +" is a shell builtin");
