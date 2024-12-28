@@ -36,15 +36,17 @@ public class Main {
                     // System.out.println();
                     break;
                 default:
-
+                    boolean flag = false;
                     for(String path : paths) {
                         Path fullPath = Path.of(path , input[0]);
                         if(Files.isRegularFile(fullPath)) {
                             Process p = Runtime.getRuntime().exec((fullPath+ inputs.substring(input[0].length())).toString().split(" "));
                             p.getInputStream().transferTo(System.out);
+                            flag = true;
                             break;
                         }
                     }
+                    if(!flag)
                     System.out.println(inputs+": command not found");
                     break;
             }
