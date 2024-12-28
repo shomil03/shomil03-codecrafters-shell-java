@@ -13,6 +13,10 @@ public class Main {
             // inputs.add(scanner.nextLine());
 
             switch (input[0].toLowerCase()) {
+
+                case "type":
+                    handleType(input);
+                    break;
                 
                 case "exit":
                     return;
@@ -38,5 +42,21 @@ public class Main {
         //     System.out.println(input+": command not found");
         // }
         
+    }
+    public static void handleType(String[] inputs) {
+        switch (inputs[1]) {
+            case "echo":
+                System.out.println(inputs[1] +" is a shell builtin");
+                break;
+            case "exit":
+                System.out.println(inputs[1] +" is a shell builtin");
+                break;
+            case "type":
+                System.out.println(inputs[1] +" is a shell builtin");
+                break;
+            default:
+                System.out.println(inputs[1] + ": not found");
+                break;
+        }
     }
 }
