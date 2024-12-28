@@ -18,6 +18,10 @@ public class Main {
 
             switch (input[0].toLowerCase()) {
 
+                case "cd":
+                    handleCD(inputs);
+                    break;
+
                 case "pwd":
                     String currentPath = System.getProperty("user.dir");
                     System.out.println(currentPath);
@@ -63,6 +67,16 @@ public class Main {
         // }
         
     }
+
+    public static void handleCD(String input){
+        String currentPath = System.getProperty("user.dir");
+        String newPath = input.substring(2);
+        if(System.setProperty(currentPath, newPath) == null){
+            System.setProperty(newPath, currentPath);
+            System.out.println(input +" No such file or directory");
+        }
+    }
+
     public static void handleType(String[] inputs) {
         // System.out.println(Arrays.toString(paths));
 
