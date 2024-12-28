@@ -40,7 +40,7 @@ public class Main {
                     for(String path : paths) {
                         Path fullPath = Path.of(path , input[0]);
                         if(Files.isRegularFile(fullPath)) {
-                            Process p = Runtime.getRuntime().exec(fullPath.toString().split(" "));
+                            Process p = Runtime.getRuntime().exec((fullPath+ inputs.substring(input[0].length())).toString().split(" "));
                             p.getInputStream().transferTo(System.out);
                             break;
                         }
