@@ -70,11 +70,15 @@ public class Main {
 
     public static void handleCD(String input){
         String currentPath = System.getProperty("user.dir");
-        String newPath = input.substring(3);
-        if(System.setProperty("user.dir", newPath) == null){
-            System.setProperty("user.dir", currentPath);
+        String newPath = currentPath + input.substring(3);
+        Path changedPath = Path.of(newPath);
+        if(!Files.isRegularFile(changedPath)){
+        // if(System.setProperty("user.dir", newPath) == null){
+            // System.setProperty("user.dir", currentPath);
             System.out.println(input +" No such file or directory");
+            return;
         }
+        System.setProperty("user.dir" , newPath);
     }
 
     public static void handleType(String[] inputs) {
