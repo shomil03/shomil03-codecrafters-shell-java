@@ -51,13 +51,7 @@ public class Main {
     public static void handleType(String[] inputs) {
         // System.out.println(Arrays.toString(paths));
 
-        for(String path : paths) {
-            Path fullPath = Path.of(path , inputs[1]);
-            if(Files.isRegularFile(fullPath)){
-                System.out.println(inputs[1] +" is "+fullPath);
-                return;
-            }
-        }
+        
         switch (inputs[1]) {
             case "echo":
                 System.out.println(inputs[1] +" is a shell builtin");
@@ -69,6 +63,13 @@ public class Main {
                 System.out.println(inputs[1] +" is a shell builtin");
                 break;
             default:
+            for(String path : paths) {
+                Path fullPath = Path.of(path , inputs[1]);
+                if(Files.isRegularFile(fullPath)){
+                    System.out.println(inputs[1] +" is "+fullPath);
+                    return;
+                    }
+                }
                 System.out.println(inputs[1] + ": not found");
                 break;
         }
