@@ -71,26 +71,18 @@ public class Main {
             builtins.add("exit");
             builtins.add("type");
             builtins.add("pwd");
-        switch (inputs[1]) {
-            case "echo":
-                System.out.println(inputs[1] +" is a shell builtin");
-                break;
-            case "exit":
-                System.out.println(inputs[1] +" is a shell builtin");
-                break;
-            case "type":
-                System.out.println(inputs[1] +" is a shell builtin");
-                break;
-            default:
-            for(String path : paths) {
-                Path fullPath = Path.of(path , inputs[1]);
-                if(Files.isRegularFile(fullPath)){
-                    System.out.println(inputs[1] +" is "+fullPath);
-                    return;
-                    }
-                }
-                System.out.println(inputs[1] + ": not found");
-                break;
+
+        if(builtins.contains(inputs[1])){
+            System.out.println(inputs[1] +" is a shell builtin");
+            return;
         }
+        for(String path : paths) {
+            Path fullPath = Path.of(path , inputs[1]);
+            if(Files.isRegularFile(fullPath)){
+                System.out.println(inputs[1] +" is "+fullPath);
+                return;
+            }                
+        }
+        System.out.println(inputs[1] + ": not found");
     }
 }
