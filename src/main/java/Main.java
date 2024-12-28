@@ -38,7 +38,7 @@ public class Main {
                 default:
 
                     for(String path : paths) {
-                        Path fullPath = Path.of(path , input[1]);
+                        Path fullPath = Path.of(path , input[0]);
                         if(Files.isRegularFile(fullPath)) {
                             Process p = Runtime.getRuntime().exec(fullPath.toString().split(" "));
                             p.getInputStream().transferTo(System.out);
