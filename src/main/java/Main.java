@@ -71,8 +71,8 @@ public class Main {
     public static void handleCD(String input){
         String currentPath = System.getProperty("user.dir");
         String newPath = input.substring(2);
-        if(System.setProperty(currentPath, newPath) == null){
-            System.setProperty(newPath, currentPath);
+        if(System.setProperty("user.dir", newPath) == null){
+            System.setProperty("user.dir", currentPath);
             System.out.println(input +" No such file or directory");
         }
     }
