@@ -70,7 +70,7 @@ public class Main {
 
     public static void handleCD(String input){
         String currentPath = System.getProperty("user.dir");
-        String newPath = currentPath + input.substring(3);
+        String newPath =  input.substring(3);
         Path changedPath = Path.of(newPath);
         if(!Files.isRegularFile(changedPath)){
         // if(System.setProperty("user.dir", newPath) == null){
