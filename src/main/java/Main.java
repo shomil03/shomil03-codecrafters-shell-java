@@ -73,16 +73,13 @@ public class Main {
         String newPath =  input.substring(3);
         Path changedPath = Path.of(newPath);
         if(!Files.exists(changedPath)){
-        // if(System.setProperty("user.dir", newPath) == null){
-            // System.setProperty("user.dir", currentPath);
-            System.out.println("cd: " + input.substring(3) +" No such file or directory");
+            System.out.println("cd: " + input.substring(3) +": No such file or directory");
             return;
         }
         System.setProperty("user.dir" , newPath);
     }
 
     public static void handleType(String[] inputs) {
-        // System.out.println(Arrays.toString(paths));
 
         List<String> builtins = new ArrayList<>();
             builtins.add("echo");
