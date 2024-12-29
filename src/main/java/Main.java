@@ -72,7 +72,7 @@ public class Main {
         String currentPath = System.getProperty("user.dir");
         String newPath =  input.substring(3);
         Path changedPath = Path.of(newPath);
-        if(!Files.isRegularFile(changedPath)){
+        if(!Files.exists(changedPath)){
         // if(System.setProperty("user.dir", newPath) == null){
             // System.setProperty("user.dir", currentPath);
             System.out.println(input +" No such file or directory");
