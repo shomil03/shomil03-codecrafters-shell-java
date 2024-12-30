@@ -1,3 +1,4 @@
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
@@ -115,7 +116,26 @@ public class Main {
         }
         System.setProperty("user.dir" , input);
     }
+    public static boolean doesFileExist(Path path) {
+        if(!Files.exists(path)){
+            System.out.println("cd: " + path +": No such file or directory");
+            return false;
+        }
+        return true;
+    }
+    public static void redirectingSTDOut(String input[]) {
+        String message = input[1];
+        File file1 = null;
+        if(message.charAt(0) == '/') {
+            if(!doesFileExist(Path.of(message))) return;
 
+            file1 = new File(message);
+        }
+        if(!doesFileExist(Path.of(input[3]))) return;
+
+        File file2 = new File(input[3]);
+        file2 = file1;
+    }
     public static void handleType(String[] inputs) {
 
         List<String> builtins = new ArrayList<>();
