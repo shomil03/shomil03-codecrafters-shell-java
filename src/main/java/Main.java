@@ -16,6 +16,10 @@ public class Main {
             String inputs = scanner.nextLine();
             String input[] = inputs.split(" ");
             // inputs.add(scanner.nextLine());
+            if(containsRedirect(input)) {
+                redirectingSTDOut(input);
+                continue;
+            }
 
             switch (input[0].toLowerCase()) {
 
@@ -67,6 +71,12 @@ public class Main {
         //     System.out.println(input+": command not found");
         // }
         
+    }
+    public static boolean containsRedirect(String input[]) {
+        for(String s : input){
+            if(s.endsWith(">")) return true;
+        }
+        return false;
     }
     public static boolean isRealative(String directories[]) {
         for(String next : directories) {
