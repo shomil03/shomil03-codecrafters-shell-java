@@ -67,8 +67,39 @@ public class Main {
         // }
         
     }
+    public static boolean isRealative(String directories[]) {
+        for(String next : directories) {
+            if(next.equals(".") || next.equals("..")) return true;
+        }
+        return false;
+
+    }
 
     public static void handleCD(String input){
+        input = input.substring(3);
+        String directories[] = input.split("/");
+        if(isRealative(directories)) {
+            for(String directory : directories) {
+                String currentPath = System.getProperty("user.dir");
+                if(directory.equals("..")) {
+                    int index = currentPath.lastIndexOf("/");
+                    currentPath = currentPath.substring(0, index);
+                    System.setProperty("user.dir", currentPath);
+                }
+                else if(directory.equals(".")) continue;
+
+                else{
+                    String newPath = currentPath +"/" + directory;
+                    Path path = Path.of(newPath);
+                    if(!Files.exists(path)){
+                        System.out.println("cd:" + input.substring(3) + ": No such file or directory");
+                        return;
+                    }
+                    System.setProperty("user.dir", path.toString());
+
+                }
+            }
+        }
         String currentPath = System.getProperty("user.dir");
         String newPath =  input.substring(3);
         Path changedPath = Path.of(newPath);
