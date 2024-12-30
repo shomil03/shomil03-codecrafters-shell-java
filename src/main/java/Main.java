@@ -105,7 +105,7 @@ public class Main {
         // String newPath =  input.substring(3);
         Path changedPath = Path.of(input);
         if(!Files.exists(changedPath)){
-            System.out.println("cd: " + input.substring(3) +": No such file or directory");
+            System.out.println("cd: " + input +": No such file or directory");
             return;
         }
         System.setProperty("user.dir" , input);
