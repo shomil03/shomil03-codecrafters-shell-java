@@ -89,7 +89,8 @@ public class Main {
                 else if(directory.equals(".")) continue;
 
                 else if(directory.equals("~")) {
-                    System.setProperty("user.dir", "user.home");
+                    String homePath = System.getProperty("user.home");
+                    System.setProperty("user.dir", homePath);
                 }
 
                 else{
