@@ -102,13 +102,13 @@ public class Main {
             return;
         }
         String currentPath = System.getProperty("user.dir");
-        String newPath =  input.substring(3);
-        Path changedPath = Path.of(newPath);
+        // String newPath =  input.substring(3);
+        Path changedPath = Path.of(input);
         if(!Files.exists(changedPath)){
             System.out.println("cd: " + input.substring(3) +": No such file or directory");
             return;
         }
-        System.setProperty("user.dir" , newPath);
+        System.setProperty("user.dir" , input);
     }
 
     public static void handleType(String[] inputs) {
