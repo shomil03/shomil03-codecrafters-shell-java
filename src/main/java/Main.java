@@ -69,7 +69,7 @@ public class Main {
     }
     public static boolean isRealative(String directories[]) {
         for(String next : directories) {
-            if(next.equals(".") || next.equals("..")) return true;
+            if(next.equals(".") || next.equals("..") || next.equals("~")) return true;
         }
         return false;
 
@@ -87,6 +87,10 @@ public class Main {
                     System.setProperty("user.dir", currentPath);
                 }
                 else if(directory.equals(".")) continue;
+
+                else if(directory.equals("~")) {
+                    System.setProperty("user.dir", "user.home");
+                }
 
                 else{
                     String newPath = currentPath +"/" + directory;
