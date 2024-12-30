@@ -92,7 +92,7 @@ public class Main {
                     String newPath = currentPath +"/" + directory;
                     Path path = Path.of(newPath);
                     if(!Files.exists(path)){
-                        System.out.println("cd:" + input.substring(3) + ": No such file or directory");
+                        System.out.println("cd:" + input + ": No such file or directory");
                         return;
                     }
                     System.setProperty("user.dir", path.toString());
