@@ -99,6 +99,7 @@ public class Main {
 
                 }
             }
+            return;
         }
         String currentPath = System.getProperty("user.dir");
         String newPath =  input.substring(3);
