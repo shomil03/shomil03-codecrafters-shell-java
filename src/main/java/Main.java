@@ -18,6 +18,7 @@ public class Main {
             // inputs.add(scanner.nextLine());
             if(containsRedirect(input)) {
                 redirectingSTDOut(inputs);
+                System.out.print("$ "); 
                 continue;
             }
 
