@@ -135,7 +135,7 @@ public class Main {
         return true;
     }
     public static void redirectingSTDOut(String input) {
-        String[] commands = input.split(">");
+        String[] commands = input.split("\\s*(1?>)\\s*");
         String commandParts = commands[0].trim();
         String outputFile = commands[1].trim();
         List<String> commandargs = new ArrayList<>(Arrays.asList(commandParts.split("\\s+")));
