@@ -179,10 +179,10 @@ public class Main {
             int exitCode = process.waitFor();
 
             if (exitCode != 0) {
-                System.err.println("Command failed with exit code " + exitCode);
+                // System.err.println("Command failed with exit code " + exitCode);
             }
         }catch (Exception e) {
-            System.err.println("Error: " + e.getMessage());
+            // System.err.println("Error: " + e.getMessage());
         }
     }
     public static void handleType(String[] inputs) {
