@@ -160,7 +160,7 @@ public class Main {
 
     }
     public static void redirectingSTDOut(String input) {
-        String[] commands = input.split("\\s*(1?>)\\s*");
+        String[] commands = input.split("\\s*(1?>|2>)\\s*");
         String commandParts = commands[0].trim();
         String outputFile = commands[1].trim();
         List<String> commandargs = parseCommand(commandParts);
