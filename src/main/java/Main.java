@@ -17,7 +17,7 @@ public class Main {
             String input[] = inputs.split(" ");
             // inputs.add(scanner.nextLine());
             if(containsRedirect(input)) {
-                redirectingSTDOut(input);
+                redirectingSTDOut(inputs);
                 continue;
             }
 
@@ -133,18 +133,31 @@ public class Main {
         }
         return true;
     }
-    public static void redirectingSTDOut(String input[]) {
-        String message = input[1];
-        File file1 = null;
-        if(message.charAt(0) == '/') {
-            if(!doesFileExist(Path.of(message))) return;
-
-            file1 = new File(message);
+    public static void redirectingSTDOut(String input) {
+        String[] commands = input.split(">");
+        String commandParts = commands[0].trim();
+        String outputFile = commands[1].trim();
+        List<String> commandargs = new ArrayList<>(Arrays.asList(commandParts.split("\\s+")));
+        ProcessBuilder processbuilder = new ProcessBuilder(commandargs);
+        if(outputFile != null) {
+            processbuilder.redirectOutput(new File(outputFile));
         }
-        if(!doesFileExist(Path.of(input[3]))) return;
+        else {
+            processbuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
+        }
+        processbuilder.redirectError(ProcessBuilder.Redirect.INHERIT);
 
-        File file2 = new File(input[3]);
-        file2 = file1;
+        // Start the process
+        try{
+            Process process = processbuilder.start();
+            int exitCode = process.waitFor();
+
+            if (exitCode != 0) {
+                System.err.println("Command failed with exit code " + exitCode);
+            }
+        }catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
     }
     public static void handleType(String[] inputs) {
 
