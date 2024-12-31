@@ -42,7 +42,8 @@ public class Main {
                     // break;
 
                 case "echo":
-                    System.out.println(inputs.substring(inputs.indexOf(" ")+1));
+                    handleEcho(inputs);
+                    // System.out.println(inputs.substring(inputs.indexOf(" ")+1));
                     // System.out.println();
                     // for(int i = 1 ; i < input.length ; i++) {
                     //     System.out.print(input[i] +" ");
@@ -72,6 +73,10 @@ public class Main {
         //     System.out.println(input+": command not found");
         // }
         
+    }
+    public static void handleEcho(String inputs) {
+        inputs.replaceAll("'", "");
+        System.out.println(inputs.substring(inputs.indexOf(" ")+1));
     }
     public static boolean containsRedirect(String input[]) {
         for(String s : input){
@@ -138,7 +143,7 @@ public class Main {
         List<String> result = new ArrayList<>();
         StringBuilder currentArg = new StringBuilder();
         boolean inQuotes = false;
-
+        if(command.contains("echo")) handleEcho(command);
         for (char c : command.toCharArray()) {
             if (c == '\'') {
                 inQuotes = !inQuotes; // Toggle inQuotes flag
