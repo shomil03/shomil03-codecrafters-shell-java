@@ -166,12 +166,15 @@ public class Main {
         List<String> commandargs = parseCommand(commandParts);
         ProcessBuilder processbuilder = new ProcessBuilder(commandargs);
         if(outputFile != null) {
-            processbuilder.redirectOutput(new File(outputFile));
-        }
-        else {
+            if (input.contains("2>")) {
+                processbuilder.redirectError(new File(outputFile)); // Redirect stderr
+            } else {
+                processbuilder.redirectOutput(new File(outputFile)); // Redirect stdout
+            }
+        } else {
+            processbuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
             processbuilder.redirectError(ProcessBuilder.Redirect.INHERIT);
         }
-        processbuilder.redirectError(ProcessBuilder.Redirect.INHERIT);
 
         // Start the process
         try{
