@@ -75,7 +75,7 @@ public class Main {
         
     }
     public static void handleEcho(String inputs) {
-        inputs.replaceAll("'", "");
+        // inputs.replaceAll("'", "");
         System.out.println(inputs.substring(inputs.indexOf(" ")+1));
     }
     public static boolean containsRedirect(String input[]) {
@@ -143,7 +143,7 @@ public class Main {
         List<String> result = new ArrayList<>();
         StringBuilder currentArg = new StringBuilder();
         boolean inQuotes = false;
-        if(command.contains("echo")) handleEcho(command);
+        
         for (char c : command.toCharArray()) {
             if (c == '\'') {
                 inQuotes = !inQuotes; // Toggle inQuotes flag
@@ -160,7 +160,7 @@ public class Main {
         if (currentArg.length() > 0) {
             result.add(currentArg.toString());
         }
-
+        if(command.contains("echo")) handleEcho(command);
         return result;
 
     }
