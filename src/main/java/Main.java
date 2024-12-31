@@ -136,7 +136,7 @@ public class Main {
     }
     public static void redirectingSTDOut(String input) {
         String[] commands = input.split("\\s*(1?>)\\s*");
-        String commandParts = commands[0].trim();
+        String commandParts = commands[0].substring(commands[0].indexOf("'") , commands[0].lastIndexOf("'")).trim();
         String outputFile = commands[1].trim();
         List<String> commandargs = new ArrayList<>(Arrays.asList(commandParts.split("\\s+")));
         ProcessBuilder processbuilder = new ProcessBuilder(commandargs);
