@@ -134,11 +134,36 @@ public class Main {
         }
         return true;
     }
+    public static List<String> parseCommand(String command) {
+        List<String> result = new ArrayList<>();
+        StringBuilder currentArg = new StringBuilder();
+        boolean inQuotes = false;
+
+        for (char c : command.toCharArray()) {
+            if (c == '\'') {
+                inQuotes = !inQuotes; // Toggle inQuotes flag
+            } else if (c == ' ' && !inQuotes) {
+                if (currentArg.length() > 0) {
+                    result.add(currentArg.toString());
+                    currentArg.setLength(0);
+                }
+            } else {
+                currentArg.append(c);
+            }
+        }
+
+        if (currentArg.length() > 0) {
+            result.add(currentArg.toString());
+        }
+
+        return result;
+
+    }
     public static void redirectingSTDOut(String input) {
         String[] commands = input.split("\\s*(1?>)\\s*");
-        String commandParts = commands[0].substring(commands[0].indexOf("'") , commands[0].lastIndexOf("'")).trim();
+        String commandParts = commands[0].trim();
         String outputFile = commands[1].trim();
-        List<String> commandargs = new ArrayList<>(Arrays.asList(commandParts.split("\\s+")));
+        List<String> commandargs = parseCommand(commandParts);
         ProcessBuilder processbuilder = new ProcessBuilder(commandargs);
         if(outputFile != null) {
             processbuilder.redirectOutput(new File(outputFile));
