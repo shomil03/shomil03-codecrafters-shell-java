@@ -169,7 +169,7 @@ public class Main {
             processbuilder.redirectOutput(new File(outputFile));
         }
         else {
-            processbuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
+            processbuilder.redirectError(ProcessBuilder.Redirect.INHERIT);
         }
         processbuilder.redirectError(ProcessBuilder.Redirect.INHERIT);
 
